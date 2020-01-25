@@ -15,7 +15,7 @@ app.use(express.json());
 // This allows the express app to use the html files in the public folder
 app.use(express.static("public"));
 app.use("/", htmlRoutes);
-// app.use("/api", apiRoutes);
+app.use("/api", apiRoutes);
 
 
 
