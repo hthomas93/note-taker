@@ -11,16 +11,16 @@ SO THAT I can organize my thoughts and keep track of tasks that I need to comple
 
 ## How it works
 When the app is run, the user will click the "Get Started" page. The app will deploy to either the user's local branch or the hosting server.
-![landing page](./Develop/landingpage.png "Landing Page!")
+![landing page](./landingpage.png "Landing Page!")
 
 This takes the user to the notes page.
-![notes page](./Develop/notepage.png "Note Page!")
+![notes page](./notepage.png "Note Page!")
 
 The user can then fill in the title and description of the note. Notice, a save icon will appear once both fields have been filled. Click this button to save the note.
-![notes field](./Develop/notefield.png "Note Field")
+![notes field](./notefield.png "Note Field")
 
 Once the user has saved the note, it will appear on the sidebar. If you click the delete icon, the note will disappear.
-![note populate](./Develop/notepopulate.png "Note Populate")
+![note populate](./notepopulate.png "Note Populate")
 
 
 
