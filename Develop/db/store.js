@@ -62,9 +62,9 @@ class Store {
     deleteNote(id) {
         return this.getNotes()
             .then(notes => {
-                for (var i = 1; i < notes.length; i++) {
+                for (var i = 0; i < notes.length; i++) {
                     if (notes[i].id == id) {
-                        notes.splice(i, 1)
+                        notes.splice(i)
                         break;
                     }
                 }
