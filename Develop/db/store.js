@@ -45,38 +45,36 @@ class Store {
 
     }
 
-    saveNote(note) {
-        note.id = this.lastId + 1
-        this.lastId = note.id
-
-        return this.read()
-            .then(note => {
-                let parseNotes = [].concat(JSON.parse(notes))
-
-                parseNotes.push(note)
-                console.log(parseNotes)
-                this.write(parseNotes)
-                return note;
+    saveNote(newNote) {
+        newNote.id = this.lastId + 1;
+        this.lastId = newNote.id;
+        return this.getNotes()
+            .then(notes => {
+                const newNoteList = [...notes, newNote];
+                console.log(newNoteList);
+                return this.write(newNoteList);
+            })
+            .then(() => {
+                return this.getNotes();
             })
     }
 
-    deleteNote(id) {
-        return this.read()
-            .then(notes => {
 
-                notes = [].concat(JSON.parse(notes))
-                for (let i = 0; i < notes.length; i++) {
-                    const note = notes[i];
-                    if (note.id === id) {
+    deleteNote(id) {
+        return this.getNotes()
+            .then(notes => {
+                for (var i = 1; i < notes.length; i++) {
+                    if (notes[i].id == id) {
                         notes.splice(i, 1)
                         break;
                     }
                 }
                 this.write(notes)
-            })
-
+            }
+            )
     }
 }
+
 
 
 module.exports = new Store();
