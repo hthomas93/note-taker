@@ -7,7 +7,18 @@ const writeFileAsync = util.promisify(fs.writeFile);
 class Store {
     constructor() {
         this.lastId = 0;
+        var file = fs.readFileSync('./db.json', { encoding: 'utf8' });
+        if (file.length > 0) {
+            var existingNotes = JSON.parse(file);
+            for (let i = 0; i < existingNotes.length; i++) {
+                const note = existingNotes[i];
+                if (this.lastId < note.id) {
+                    this.lastId = note.id;
+                }
+            }
+        }
     }
+
 
     read() {
         return readFileAsync("./db.json", "utf8");
@@ -32,36 +43,40 @@ class Store {
                 return parseNotes;
             })
 
-
-        // take the notes from db.json
-        // turn it into a JSON object
-        // add the note to the parseNotes array
-        // return the array
-
     }
 
-    addNote(note) {
-        let note = note;
+    saveNote(note) {
+        note.id = this.lastId + 1
+        this.lastId = note.id
 
-        console.log(note);
-
-        this.getNotes()
+        return this.read()
             .then(note => {
+                let parseNotes = [].concat(JSON.parse(notes))
+
                 parseNotes.push(note)
+                console.log(parseNotes)
+                this.write(parseNotes)
+                return note;
             })
-
-
-
-        // take the written note
-        // prepend it to the db.json file
-
-
     }
 
-    removeNote(id) {
-        // return
+    deleteNote(id) {
+        return this.read()
+            .then(notes => {
+
+                notes = [].concat(JSON.parse(notes))
+                for (let i = 0; i < notes.length; i++) {
+                    const note = notes[i];
+                    if (note.id === id) {
+                        notes.splice(i, 1)
+                        break;
+                    }
+                }
+                this.write(notes)
+            })
 
     }
 }
+
 
 module.exports = new Store();
