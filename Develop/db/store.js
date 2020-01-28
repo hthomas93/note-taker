@@ -51,7 +51,6 @@ class Store {
         return this.getNotes()
             .then(notes => {
                 const newNoteList = [...notes, newNote];
-                console.log(newNoteList);
                 return this.write(newNoteList);
             })
             .then(() => {
