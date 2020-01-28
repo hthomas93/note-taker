@@ -2,7 +2,7 @@
 ## A Handy Dandy Express App
 
 ## Purpose
-
+The note taker app is a simple and streamlined solution to keeping your thoughts and tasks organized.
 
 ## User Story
 AS A user, I want to be able to write and send notes.
