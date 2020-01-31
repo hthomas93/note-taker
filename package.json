@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +13,14 @@
     "mysql": "^2.16.0"
   },
   "keywords": [],
-  "description": ""
+  "description": "https://hthomas93.github.io/note-taker/",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hthomas93/note-taker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hthomas93/note-taker/issues"
+  },
+  "homepage": "https://github.com/hthomas93/note-taker/public/index.html"
 }
