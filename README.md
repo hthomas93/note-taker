@@ -1,5 +1,6 @@
 # Note Taker App
 ## A Handy Dandy Express App
+https://hthomas93.github.io/note-taker/
 
 ## Purpose
 The note taker app is a simple and streamlined solution to keeping your thoughts and tasks organized.
